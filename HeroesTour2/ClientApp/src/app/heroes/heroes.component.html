@@ -1,0 +1,40 @@
+<h1 id="tableLabel">My list of heroes</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!heroes"><em>Loading...</em></p>
+
+
+<div class="input-group mb-3 w-50">
+  <span class="input-group-text" id="inputGroup-sizing-default">First Name:</span>
+  <input type="text" class="form-control" [(ngModel)]="hero.firstName">
+</div>
+
+<div class="input-group mb-3 w-50">
+  <span class="input-group-text" id="inputGroup-sizing-default">Last Name:</span>
+  <input type="text" class="form-control" [(ngModel)]="hero.lastName">
+</div>
+
+<button type="button" class="btn btn-primary" (click)="addHero(hero)">Add hero</button> <br /> <br />
+
+<table class='table table-striped w-50' aria-labelledby="tableLabel" *ngIf="heroes">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th></th>
+      <th></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hero of heroes">
+      <td> {{ hero.firstName }} </td>
+      <td> {{ hero.lastName }} </td>
+      <td> <button type="button" class="btn btn-danger" (click)="deleteHero(hero)"> Delete </button> </td>
+      <td> <button type="button" class="btn btn-secondary" routerLink="/detail/{{hero.id}}"> Edit </button> </td>
+
+    </tr>
+  </tbody>
+</table>
+
