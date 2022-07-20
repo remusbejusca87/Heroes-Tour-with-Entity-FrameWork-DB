@@ -21,7 +21,7 @@ export class HeroDetailComponent {
   private getHero(): void{
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.http.get<Hero>("http://localhost:5000/" + 'api/heroes1/' + id).subscribe(result => {
+    this.http.get<Hero>(this.baseUrl + 'api/heroes1/' + id).subscribe(result => {
       this.hero = result;
     }, error => console.error(error));
   }
