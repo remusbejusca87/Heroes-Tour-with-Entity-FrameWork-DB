@@ -1,0 +1,16 @@
+<h3> Here you can search heroes from list: </h3> <br /> 
+
+<div id="search-component">
+
+  <div class="input-group mb-3 w-50">
+    <span class="input-group-text" id="inputGroup-sizing-default">Search hero:</span>
+    <input type="text" class="form-control" [(ngModel)]="searchText" (input)="searchHeroes()">
+  </div>
+
+  <ul class="list-group w-50">
+    <li *ngFor="let hero of heroes" class="list-group-item list-group-item-action">
+      <a routerLink="/detail/{{hero.id}}"> {{hero.firstName}} {{hero.lastName}} </a>
+    </li>
+  </ul>
+
+</div>

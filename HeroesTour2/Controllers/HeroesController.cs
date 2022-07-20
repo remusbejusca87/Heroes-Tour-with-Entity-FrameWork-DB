@@ -1,77 +1,91 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System;
-using System.Linq;
+﻿//using Microsoft.AspNetCore.Http;
+//using Microsoft.AspNetCore.Mvc;
+//using System.Collections.Generic;
+//using System;
+//using System.Linq;
 
-namespace HeroesTour2.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class HeroesController : ControllerBase
-    {
-        private static List<Hero> heroesList = new List<Hero>();
+//namespace HeroesTour2.Controllers
+//{
+//    [Route("api/[controller]")]
+//    [ApiController]
+//    public class HeroesController : ControllerBase
+//    {
+//        private static List<Hero> heroesList = new List<Hero>();
 
-        public HeroesController()
-        {
-            if(heroesList.Count == 0)
-            {
-                heroesList.Add(new Hero() { Id = Guid.NewGuid(),firstName = "Doctor", lastName = "Nice" });
-                heroesList.Add(new Hero() { Id = Guid.NewGuid(),firstName = "Bombasto", lastName = "Jack" });
-                heroesList.Add(new Hero() { Id = Guid.NewGuid(),firstName = "Celeritas", lastName = "Jose" });
-            }
-        }
+//        public HeroesController()
+//        {
+//            if(heroesList.Count == 0)
+//            {
+//                heroesList.Add(new Hero() { Id = Guid.NewGuid(),firstName = "Doctor", lastName = "Nice" });
+//                heroesList.Add(new Hero() { Id = Guid.NewGuid(),firstName = "Bombasto", lastName = "Jack" });
+//                heroesList.Add(new Hero() { Id = Guid.NewGuid(),firstName = "Celeritas", lastName = "Jose" });
+//            }
+//        }
 
-        [HttpGet]
-        public Hero[] Get()
-        {
-            return heroesList.ToArray();
-        }
+//        [HttpGet]
+//        public Hero[] Get()
+//        {
+//            return heroesList.ToArray();
+//        }
 
-        [HttpPost]
-        public void Post([FromBody] Hero hero)
-        {
-            hero.Id = Guid.NewGuid();
-            heroesList.Add(hero);
-        }
+//        [HttpPost]
+//        public void Post([FromBody] Hero hero)
+//        {
+//            hero.Id = Guid.NewGuid();
+//            heroesList.Add(hero);
+//        }
 
-        [HttpDelete]
+//        [HttpDelete]
 
-        public void Delete([FromQuery] Guid id)
-        {
-            Hero heroToDelete = heroesList.FirstOrDefault(x => x.Id == id);
-            heroesList.Remove(heroToDelete);
-        }
+//        public void Delete([FromQuery] Guid id)
+//        {
+//            Hero heroToDelete = heroesList.FirstOrDefault(x => x.Id == id);
+//            heroesList.Remove(heroToDelete);
+//        }
 
-        [HttpGet]
-        [Route("{id:guid}")]
-        public Hero Get([FromRoute] Guid id)
-        {
-            var hero = heroesList.FirstOrDefault(x => x.Id == id);
-            if (hero != null)
-            {
-                return hero;
-            }
-            return null;
-        }
+//        [HttpGet]
+//        [Route("{id:guid}")]
+//        public Hero Get([FromRoute] Guid id)
+//        {
+//            var hero = heroesList.FirstOrDefault(x => x.Id == id);
+//            if (hero != null)
+//            {
+//                return hero;
+//            }
+//            return null;
+//        }
 
-        [HttpPut]
-        [Route("{id:guid}")]
+//        [HttpPut]
+//        [Route("{id:guid}")]
 
-        public void Update([FromRoute] Guid id, [FromBody] Hero hero)
-        {
-            var heroToUpdate = heroesList.FirstOrDefault(x => x.Id == id);
+//        public void Update([FromRoute] Guid id, [FromBody] Hero hero)
+//        {
+//            var heroToUpdate = heroesList.FirstOrDefault(x => x.Id == id);
 
-            if(heroToUpdate != null)
-            {
-                heroToUpdate.firstName = hero.firstName;
-                heroToUpdate.lastName = hero.lastName;
+//            if(heroToUpdate != null)
+//            {
+//                heroToUpdate.firstName = hero.firstName;
+//                heroToUpdate.lastName = hero.lastName;
 
-            }
-        }
+//            }
+//        }
+
+//        //[HttpGet]
+//        //public ActionResult<Hero[]> Search(string searchText)
+//        //{
+//        //    //string termToSearch = hero.firstName.ToLower().Trim();
+//        //    //List<Hero> heroesFound = heroesList.FindAll(h => h.firstName.ToLower().Contains(termToSearch));
+//        //    //Console.WriteLine(heroesFound);
+//        //    List<Hero> heroesFound = heroesList;
+//        //    var result = heroesFound.Where(a => a.firstName.ToLower().Contains(searchText) || a.lastName.ToLower().Contains(searchText)).ToList();
+//        //    return heroesFound.ToArray();
+//        //}
+
+
+
 
         
 
 
-    }
-}
+//    }
+//}

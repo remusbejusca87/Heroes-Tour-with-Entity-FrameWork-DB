@@ -1,10 +1,12 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using HeroesTour2.Data;
 
 namespace HeroesTour2
 {
@@ -26,6 +28,9 @@ namespace HeroesTour2
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<HeroesTour2Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("HeroesTour2Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

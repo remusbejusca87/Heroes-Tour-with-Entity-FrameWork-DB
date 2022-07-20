@@ -18,17 +18,17 @@ export class HeroDetailComponent {
     this.getHero();
   }
 
-  private getHero(): void {
+  private getHero(): void{
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.http.get<Hero>(this.baseUrl + 'api/heroes/' + id).subscribe(result => {
+    this.http.get<Hero>("http://localhost:5000/" + 'api/heroes1/' + id).subscribe(result => {
       this.hero = result;
     }, error => console.error(error));
   }
 
   public save(id: string, hero: Hero): void {
 
-    this.http.put<Hero>(this.baseUrl + 'api/heroes/' + id, hero).subscribe(result => {
+    this.http.put<Hero>(this.baseUrl + 'api/heroes1/' + id, hero).subscribe(result => {
       this.location.back();
     }, error => console.error(error));
   }

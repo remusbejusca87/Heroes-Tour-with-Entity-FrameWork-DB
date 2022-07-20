@@ -15,7 +15,9 @@
   <input type="text" class="form-control" [(ngModel)]="hero.lastName">
 </div>
 
-<button type="button" class="btn btn-primary" (click)="addHero(hero)">Add hero</button> <br /> <br />
+<button type="button" class="btn btn-primary" (click)="addHero()">Add hero</button>
+<br />
+<br />
 
 <table class='table table-striped w-50' aria-labelledby="tableLabel" *ngIf="heroes">
   <thead>
@@ -37,4 +39,5 @@
     </tr>
   </tbody>
 </table>
+
 

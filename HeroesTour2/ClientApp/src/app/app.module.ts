@@ -11,6 +11,9 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { HerosSearchComponent } from './heros-search/heros-search.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     CounterComponent,
     FetchDataComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HerosSearchComponent,
+    DashboardComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,7 +37,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'heroes', component: HeroesComponent },
-      { path: 'detail/:id', component: HeroDetailComponent }
+      { path: 'detail/:id', component: HeroDetailComponent },
+      { path: 'dashboard', component: DashboardComponent }
     ])
   ],
   providers: [],
